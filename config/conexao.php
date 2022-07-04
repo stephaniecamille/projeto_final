@@ -4,7 +4,7 @@
         static $host = '127.0.0.1';
         static $user = 'root';
         static $pass = '';
-        static $database = 'db_catalogo_3e1';
+        static $database = 'db_projeto_final_3e';
         static $port = '3366';
         static $con;
 
