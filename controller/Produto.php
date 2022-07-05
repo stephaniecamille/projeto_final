@@ -26,7 +26,7 @@ class Produto{
         $categorias = $this->categoria_model->buscarTodos();
         include 'view/template/cabecalho.php';
         include 'view/template/menu.php';
-        include 'view/produto/listagem.php';
+        include 'view/produto/form.php';
         include 'view/template/rodape.php';
     }
 
@@ -42,7 +42,7 @@ class Produto{
     
     function excluir($id){
         $this->model->exluir($id);
-        header('Location = ?c=produto');
+        header('Location: ?c=produto');
     }
 
     function salvar_foto(){
@@ -81,7 +81,7 @@ class Produto{
                     $_POST['categoria']
                 );
             }
-            header('Location = ?c=produto');
+            header('Location: ?c=produto');
         }else{
             echo "Ocorreu um erro, pois os dados não foram enviados.";
         }

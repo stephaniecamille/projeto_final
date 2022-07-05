@@ -24,7 +24,7 @@ class Usuario{
     function add(){
         include 'view/template/cabecalho.php';
         include 'view/template/menu.php';
-        include 'view/usuario/listagem.php';
+        include 'view/usuario/form.php';
         include 'view/template/rodape.php';
     }
 
@@ -38,14 +38,14 @@ class Usuario{
 
     function excluir($id){
         $this->model->exluir($id);
-        header('Location = ?c=usuario');
+        header('Location: ?c=usuario');
     }
 
     function salvar(){
         if(isset($_POST['login']) && !empty($_POST['login']) && !empty($_POST['senha'])){
             if(empty($_POST['idusuario'])){
 
-                if(!$this->model->bucarPorLogin($_POST['login'])){
+                if(!$this->model->buscarPorLogin($_POST['login'])){
                     $this->model->inserir($_POST['login'], password_hash($_POST['senha'], PASSWORD_BCRYPT) );
                 }else{
                     echo "Já existe um usuário com esse Login cadastrado.";
@@ -56,7 +56,7 @@ class Usuario{
             }else{
                 $this->model->atualizar($_POST['idusuario'], $$_POST['login'], password_hash($_POST['senha'], PASSWORD_BCRYPT));
             }
-            header('Location = ?c=usuario');
+            header('Location: ?c=usuario');
         }else{
             echo "Ocorreu um erro, pois os dados não foram enviados.";
         }

@@ -1,18 +1,16 @@
 <?php
 
 $base_url = 'http://localhost/afonso/projeto_final/index.php';
-$controlador_padrao = 'home';
-$controlador = ucfirst($_GET['c'] ?? 'categoria');
+$controlador = ucfirst($_GET['c'] ?? 'home');
 $metodo = $_GET['m'] ?? 'index';
 
 $caminho_controlador = "controller/$controlador.php";
 if(file_exists($caminho_controlador)){
     require $caminho_controlador;
-    echo $caminho_controlador;
     $objController = new $controlador();
     $id =$_GET['id'] ?? null;
     if(is_callable(array($objController, $metodo))){
-        call_user_func_array(array($objController, $metodo), array());
+        call_user_func_array(array($objController, $metodo), array($id));
     };
 }
 
@@ -21,7 +19,4 @@ function base_url(){
     return $base_url ;
 }
 
-
-echo "controlador $controlador";
-echo "metodo $metodo";
 ?>

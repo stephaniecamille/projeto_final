@@ -30,7 +30,7 @@ class UsuarioModel{
         $comando->execute();
     }
 
-    function buscarLogin($login){
+    function buscarPorLogin($login){
         $sql = 'SELECT * FROM usuario WHERE login = ?';
         $comando = $this->conexao->prepare($sql);
         $comando->bind_param('s', $login);

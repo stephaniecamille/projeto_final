@@ -24,7 +24,7 @@ class CategoriaModel{
     }
 
     function atualizar($id,$nome){
-        $sql = 'UPDATE categoria SET nome = ? WHERE idcategoria = ?)';
+        $sql = 'UPDATE categoria SET nome = ? WHERE idcategoria = ?';
         $comando = $this->conexao->prepare($sql);
         $comando->bind_param('si', $nome, $id);
         $comando->execute();

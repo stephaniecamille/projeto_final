@@ -22,15 +22,16 @@ class Categoria{
     }
 
     function add(){
+        $categorias = $this->model->buscarTodos();
         include 'view/template/cabecalho.php';
         include 'view/template/menu.php';
-        include 'view/categoria/listagem.php';
+        include 'view/categoria/form.php';
         include 'view/template/rodape.php';
     }
 
     function excluir($id){
-        $this->model->exluir($id);
-        header('Location = ?c=categoria');
+        $this->model->excluir($id);
+        header('Location: ?c=categoria');
     }
 
     function salvar(){
@@ -40,17 +41,18 @@ class Categoria{
             }else{
                 $this->model->atualizar($_POST['idcategoria'], $_POST['categoria']);
             }
-            header('Location = ?c=categoria');
+            header('Location: ?c=categoria');
         }else{
             echo "Ocorreu um erro, pois os dados não foram enviados.";
         }
     }
 
     function editar($id){
+        $categorias = $this->model->buscarTodos();
         $categoria = $this->model->buscarPorId($id);
         include 'view/template/cabecalho.php';
         include 'view/template/menu.php';
-        include 'view/categoria/listagem.php';
+        include 'view/categoria/form.php';
         include 'view/template/rodape.php';
     }
 }
