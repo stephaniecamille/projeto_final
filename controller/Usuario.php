@@ -37,7 +37,7 @@ class Usuario{
     }
 
     function excluir($id){
-        $this->model->exluir($id);
+        $this->model->excluir($id);
         header('Location: ?c=usuario');
     }
 
