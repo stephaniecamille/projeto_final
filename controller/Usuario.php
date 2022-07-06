@@ -7,7 +7,7 @@ class Usuario{
     function __construct()
     {
         session_start();
-        if(isset($_SESSION['usuario'])){
+        if(!isset($_SESSION['usuario'])){
             header('Location: ?c=restrito&m=login');
         }
         $this->model = new UsuarioModel();    
@@ -32,7 +32,7 @@ class Usuario{
         $usuarios = $this->model->buscarPorId($id);
         include 'view/template/cabecalho.php';
         include 'view/template/menu.php';
-        include 'view/usuario/listagem.php';
+        include 'view/usuario/form.php';
         include 'view/template/rodape.php';
     }
 

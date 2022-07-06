@@ -8,9 +8,8 @@ class Restrito
         $this->usuario = new UsuarioModel();
     }
 
-    function login($id)
+    function login()
     {
-
         include 'view/template/cabecalho.php';
         include 'view/restrito/form.php';
         include 'view/template/rodape.php';
@@ -28,7 +27,7 @@ class Restrito
             $usuario = $this->usuario->buscarPorLogin($_POST['login']);
             if(password_verify($_POST['senha'], $usuario['senha'])){
                 session_start();
-                $_SESSION['usuario'] =$usuario['login'];
+                $_SESSION['usuario'] = $usuario['login'];
                 header('Location: ?c=categoria');
             }else{
                 header('Location: ?c=restrito&m=login');

@@ -24,7 +24,7 @@ class ProdutoModel{
     }
 
     function atualizar($id, $nome, $descricao, $preco, $marca, $foto, $idcategoria){
-        $sql = 'UPDATE produto SET nome = ?, descricao = ?, preco = ?, marca = ?, foto = ?, categoria_idcategoria = ? WHERE idproduto = ?)';
+        $sql = 'UPDATE produto SET nome = ?, descricao = ?, preco = ?, marca = ?, foto = ?, categoria_idcategoria = ? WHERE idproduto = ?';
         $comando = $this->conexao->prepare($sql);
         $comando->bind_param('ssdssii', $nome, $descricao, $preco, $marca, $foto, $idcategoria, $id);
         $comando->execute();

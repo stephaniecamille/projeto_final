@@ -7,7 +7,7 @@ class Produto{
     function __construct()
     {
         session_start();
-        if(isset($_SESSION['usuario'])){
+        if(!isset($_SESSION['usuario'])){
             header('Location: ?c=restrito&m=login');
         }
         $this->model = new ProdutoModel();
@@ -36,7 +36,7 @@ class Produto{
         $categorias = $this->categoria_model->buscarTodos();
         include 'view/template/cabecalho.php';
         include 'view/template/menu.php';
-        include 'view/produto/listagem.php';
+        include 'view/produto/form.php';
         include 'view/template/rodape.php';
     }
     
