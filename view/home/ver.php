@@ -3,7 +3,7 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col-6">
-            <img src="<?= $produto['foto'] ?>">
+            <img src="<?= $produto['foto'] ?>" class="img-fluid">
         </div>
         <div class="col-6">
             <h4><?= $produto['nome'] ?></h4>

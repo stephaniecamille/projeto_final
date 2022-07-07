@@ -10,6 +10,7 @@ class Usuario{
         if(!isset($_SESSION['usuario'])){
             header('Location: ?c=restrito&m=login');
         }
+        
         $this->model = new UsuarioModel();    
     }
 

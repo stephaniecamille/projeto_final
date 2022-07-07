@@ -20,8 +20,8 @@
             <?php foreach($produtos as $produto): ?>
             <tr>
                 <td><?php echo $produto['nome']; ?></td>
-                <td><?php echo $produto['marca']; ?></td>
                 <td><?php echo $produto['preco']; ?></td>
+                <td><?php echo $produto['marca']; ?></td>
                 <td>
                     <a href="<?php echo $produto['foto']; ?>">
                         <img src=" <?php echo $produto['foto']; ?>" height="30px">
